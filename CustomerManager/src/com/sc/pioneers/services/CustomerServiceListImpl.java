@@ -21,4 +21,16 @@ public class CustomerServiceListImpl implements CustomerService
 		return customerList;
 	}
 
+	@Override
+	public Customer getCustomerById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteCustomer(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

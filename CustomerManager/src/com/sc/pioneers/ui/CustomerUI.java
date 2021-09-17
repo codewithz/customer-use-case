@@ -27,20 +27,27 @@ public class CustomerUI {
 			switch (option) {
 			case 1:
 				controller.addCustomer();
+				System.out.println("---------------------------------------------------------------------------");
 				
 				break;
 			case 2:
 				System.out.println("Listing customer");
 				controller.listCustomers();
+				System.out.println("---------------------------------------------------------------------------");
 				break;
 			case 3:
 				System.out.println("Searching customer");
+				controller.searchCustomer();
+				System.out.println("---------------------------------------------------------------------------");
 				break;
 			case 4:
 				System.out.println("Deleting customer");
+				controller.deleteCustomer();
+				System.out.println("---------------------------------------------------------------------------");
 				break;
 			case 5:
 				System.out.println("Thanks for using our services");
+				System.out.println("---------------------------------------------------------------------------");
 				System.exit(0);
 				break;
 				

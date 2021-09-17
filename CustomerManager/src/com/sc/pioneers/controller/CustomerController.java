@@ -5,13 +5,14 @@ import java.util.Scanner;
 
 import com.sc.pioneers.bean.Customer;
 import com.sc.pioneers.services.CustomerService;
+import com.sc.pioneers.services.CustomerServiceDBImpl;
 import com.sc.pioneers.services.CustomerServiceListImpl;
 
 public class CustomerController 
 {
 	Scanner sc=new Scanner(System.in);
 	
-	CustomerService service=new CustomerServiceListImpl();
+	CustomerService service=new CustomerServiceDBImpl();
 	
 	public void addCustomer()
 	{
@@ -53,8 +54,32 @@ public class CustomerController
 		
 		for(Customer c:list)
 		{
-			System.out.println(c.getName()+"-"+c.getEmail());
+			System.out.println("ID:"+c.getId()+" | Name:"+c.getName()+" | Type:"+c.getAccountType()+" | Email:"+c.getEmail()+" | Phone:"+c.getPhone());
 		}
+	}
+	
+	public void searchCustomer()
+	{
+		System.out.print("Please enter the ID of Customer:");
+		int id=sc.nextInt();
+		
+		Customer c=service.getCustomerById(id);
+		
+		if(c!=null)
+		{
+			System.out.println("ID:"+c.getId()+" | Name:"+c.getName()+" | Type:"+c.getAccountType()+" | Email:"+c.getEmail()+" | Phone:"+c.getPhone());
+		}
+		else
+		{
+			System.err.println("Customer doesn't exist");
+		}
+	}
+	
+	public void deleteCustomer()
+	{
+		System.out.print("Please enter the ID of Customer you want to Delete:");
+		int id=sc.nextInt();
+		service.deleteCustomer(id);
 	}
 	
 
